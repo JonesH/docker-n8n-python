@@ -1,4 +1,4 @@
-FROM nikolaik/python-nodejs:python3.10-nodejs18-alpine
+FROM nikolaik/python-nodejs:python3.13-nodejs24-alpine
 
 # changing user `pn` to `node`
 RUN deluser pn && rm -r /home/pn # delete: user + group
@@ -9,7 +9,7 @@ ARG N8N_VERSION
 RUN if [ -z "$N8N_VERSION" ] ; then echo "The N8N_VERSION argument is missing!" ; exit 1; fi
 
 # Update everything and install needed dependencies
-RUN apk add --update graphicsmagick tzdata git tini su-exec
+RUN apk add --update graphicsmagick tzdata git tini su-exec bash
 
 # # Set a custom user to not have n8n run as root
 USER root
