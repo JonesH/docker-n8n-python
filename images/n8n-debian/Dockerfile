@@ -1,4 +1,4 @@
-FROM nikolaik/python-nodejs:python3.10-nodejs18
+FROM nikolaik/python-nodejs:python3.13-nodejs20
 
 # changing user `pn` to `node`
 RUN usermod --login node --move-home --home /home/node pn
@@ -10,7 +10,7 @@ RUN if [ -z "$N8N_VERSION" ] ; then echo "The N8N_VERSION argument is missing!" 
 
 RUN \
 	apt-get update && \
-	apt-get -y install graphicsmagick gosu git
+	apt-get -y install graphicsmagick gosu git bash
 
 # Install python requirements
 RUN mkdir /requirements
